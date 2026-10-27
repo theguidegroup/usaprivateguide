@@ -1,69 +1,306 @@
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Member Login - The Guide Group</title>
-  <link rel="shortcut icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../style.css">
-  <script async data-id="101513988" src="//static.getclicky.com/js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Login - TGG USA PRIVATE GUIDE</title>
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <script async data-id="101513988" src="//static.getclicky.com/js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            font-family: 'Segoe UI', "Helvetica Neue", sans-serif;
+            color: #222;
+
+            background:
+                linear-gradient(
+                    rgba(255, 255, 255, 0.80),
+                    rgba(255, 255, 255, 0.80)
+                ),
+                url("../img/american-flag.png");
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .page-header {
+            text-align: center;
+        }
+
+        .logo-image {
+            display: block;
+            width: min(320px, 100%);
+            height: auto;
+            margin: 0 auto 12px;
+        }
+
+        h1 {
+            color: #dd1111;
+            font-size: clamp(26px, 4vw, 36px);
+            margin: 12px 0;
+            text-align: center;
+        }
+
+        hr {
+            max-width: 1024px;
+            border: none;
+            border-top: 1px solid #dd1111;
+            margin: 16px auto;
+        }
+
+        .intro {
+            max-width: 600px;
+            margin: 16px auto;
+            padding: 0 8px;
+            text-align: center;
+            line-height: 1.6;
+            color: #dd1111;
+        }
+
+        #loginForm {
+            width: 100%;
+            max-width: 480px;
+            margin: 20px auto;
+            padding: 24px;
+
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #ffa5a5;
+            border-radius: 22px;
+            box-shadow: 0 8px 24px rgba(221, 17, 17, 0.10);
+
+            font-family: 'Poppins', "MS Gothic", sans-serif;
+            color: #333;
+        }
+
+        #loginForm {
+            width: 100%;
+            max-width: 1024px;
+            margin: 20px auto;
+            padding: 24px;
+
+            background: rgba(255, 255, 255, 0.92);
+            border: 1px solid #ffa5a5;
+            border-radius: 22px;
+            box-shadow: 0 8px 24px rgba(221, 17, 17, 0.10);
+            font-size: 9pt;
+            font-family: 'Poppins', "MS Gothic", sans-serif;
+            color: #333;
+            box-sizing: border-box;
+        }
+
+        #loginForm input[type="email"],
+        #loginForm input[type="password"] {
+            display: block;
+            width: 100%;
+            min-height: 48px;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+
+            border: 1px solid #ffa5bd;
+            border-radius: 12px;
+            background: #fff;
+            color: #333;
+            font-family: inherit;
+            font-size: 16px;
+
+            transition: border-color 0.2s ease,
+                        box-shadow 0.2s ease;
+        }
+
+        #loginForm input:focus {
+            border-color: #dd1111;
+            box-shadow: 0 0 0 3px rgba(221, 17, 17, 0.10);
+            outline: none;
+        }
+
+        #loginForm input[type="submit"] {
+            display: block;
+            width: fit-content;
+            max-width: 100%;
+            min-width: 260px;
+            margin: 22px auto 0;
+            padding: 12px 32px;
+
+            border: none;
+            border-radius: 14px;
+            background: #dd1111;
+            color: #fff;
+
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+
+            box-shadow: 0 4px 12px rgba(221, 17, 17, 0.20);
+            transition: background-color 0.2s ease,
+                        transform 0.2s ease,
+                        box-shadow 0.2s ease;
+        }
+
+        #loginForm input[type="submit"]:hover {
+            background: #b90e0e;
+            box-shadow: 0 6px 16px rgba(221, 17, 17, 0.25);
+            transform: translateY(-1px);
+        }
+
+        .required-star {
+            color: #cc3333;
+            margin-left: 4px;
+            font-weight: 700;
+        }
+
+        .error-message {
+            display: none;
+            margin: -10px 0 16px;
+            color: #cc3333;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .copyright {
+            text-align: center;
+            font-size: 11px;
+            color: #dd1111;
+            margin: 24px auto 8px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 14px;
+                background-attachment: scroll;
+            }
+
+            .logo-image {
+                width: min(260px, 85%);
+            }
+
+            #loginForm {
+                padding: 20px 16px;
+                margin: 16px auto;
+                border-radius: 18px;
+            }
+
+            #loginForm input[type="submit"] {
+                padding: 12px 28px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div style="text-align: center;">
-      <img src="../img/tgg.png" class="logo-image the-guide-group" draggable="false">
-    </div>
-  </div>
-  <h1 style="text-align: center; font-size: 40pt;">Member Login</h1>
-  <hr>
-  <div style="max-width: 1024px; margin: 2pt auto; font-size: 12pt; text-align: center; padding: 0 2pt;">
-    <font style="color: #dd1111;">Please enter your group member email address and password.</font><br>
-  </div>
 
-  <form id="loginForm" action="https://usaprivateguide.com/login/verification" method="POST" class="form" novalidate>
+    <header class="page-header">
+        <img
+            src="../img/tgg.png"
+            class="logo-image"
+            alt="The Guide Group"
+            draggable="false"
+        >
+    </header>
 
-    <label for="email">Email<span class="required-star">*</span></label>
-    <input type="email" id="email" name="email" placeholder="example@theguidegroup.org" required />
-    <div id="emailError" class="error-message" style="display:none;">Please enter a valid email address.</div>
+    <main>
+        <h1>Member Login</h1>
 
-    <label for="password">Password<span class="required-star">*</span></label>
-    <input type="password" id="password" name="password" placeholder="Please enter your password." required />
-    <div id="passwordError" class="error-message" style="display:none;">Please enter your password.</div>
+        <hr>
 
-    <input type="submit" value="Login" />
-  </form>
+        <p class="intro">
+            Please enter your group member email address and password.
+        </p>
 
-  <script>
-    const form = document.getElementById('loginForm');
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
+        <form
+            id="loginForm"
+            action="https://usaprivateguide.com/login/verification"
+            method="POST"
+            novalidate
+        >
+            <label for="email">
+                Email<span class="required-star">*</span>
+            </label>
 
-    form.addEventListener('submit', function(e) {
-      let valid = true;
-      emailError.style.display = 'none';
-      passwordError.style.display = 'none';
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="example@theguidegroup.org"
+                autocomplete="username"
+                required
+            >
 
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!email.value.trim() || !emailPattern.test(email.value)) {
-        emailError.style.display = 'block';
-        valid = false;
-      }
+            <div id="emailError" class="error-message" role="alert">
+                Please enter a valid email address.
+            </div>
 
-      if (!password.value.trim()) {
-        passwordError.style.display = 'block';
-        valid = false;
-      }
+            <label for="password">
+                Password<span class="required-star">*</span>
+            </label>
 
-      if (!valid) {
-        e.preventDefault();
-      }
-    });
-  </script>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Please enter your password."
+                autocomplete="current-password"
+                required
+            >
 
-  <div class="copyright">
-    © 2025 The Guide Group All rights reserved.
-  </div>
+            <div id="passwordError" class="error-message" role="alert">
+                Please enter your password.
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+    </main>
+
+    <footer class="copyright">
+        &copy; 2026 The Guide Group. All rights reserved.
+    </footer>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        const email = document.getElementById('email');
+        const password = document.getElementById('password');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+
+        form.addEventListener('submit', function (e) {
+            let valid = true;
+
+            emailError.style.display = 'none';
+            passwordError.style.display = 'none';
+
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!email.value.trim() || !emailPattern.test(email.value.trim())) {
+                emailError.style.display = 'block';
+                valid = false;
+            }
+
+            if (!password.value) {
+                passwordError.style.display = 'block';
+                valid = false;
+            }
+
+            if (!valid) {
+                e.preventDefault();
+            }
+        });
+    </script>
 
 </body>
 </html>
