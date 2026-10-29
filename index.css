@@ -811,7 +811,7 @@ input[type="submit"]:hover {
   right: 12px;
   background: rgba(255, 255, 255, 0.75);
   border: none;
-  color: #cc0066;
+  color: #cc0000;
   font-size: 12px;
   font-weight: bold;
   cursor: pointer;
@@ -1263,7 +1263,7 @@ max-width: calc(20% - 1px);
 }
 
 .guide-point {
-  background: #fff0f6;
+  background: #fff0f0;
   padding: 1rem;
   border-radius: 16px;
   box-shadow: 0 4px 10px rgba(255, 123, 189, 0.1);
