@@ -181,6 +181,12 @@ h1 {
   display: block;
 }
 
+@media screen and (max-width: 480px) {
+  .lang-wrapper {
+    display: none;
+  }
+}
+
 .mobile-controls {
   display: none;
   align-items: center;
@@ -1055,16 +1061,16 @@ input[type="submit"]:hover {
   content: "This guide is certified and endorsed by TGG, demonstrating international-level professionalism and service excellence.";
 }
 
-.tooltip-certified-ja::after {
-  content: "本ガイドは TGG により認定および推薦されており、国際水準の専門性とサービス品質を備えています。";
+.tooltip-certified-fr::after {
+  content: "Ce guide est certifié et approuvé par TGG, témoignant d’un professionnalisme de niveau international et d’une excellence de service.";
 }
 
-.tooltip-certified-ko::after {
-  content: "본 가이드는 TGG의 인증과 추천을 받은 국제 수준의 전문성과 서비스 품질을 갖춘 전문가입니다.";
+.tooltip-certified-it::after {
+  content: "Questa guida è certificata e approvata da TGG, a testimonianza di un livello di professionalità internazionale e di un’eccellenza nel servizio.";
 }
 
-.tooltip-certified-zh-tw::after {
-  content: "本導遊榮獲 TGG 認證與推薦，具備國際級專業素養與服務水準。";
+.tooltip-certified-de::after {
+  content: "Dieser Guide ist von TGG zertifiziert und anerkannt und steht für Professionalität auf internationalem Niveau sowie herausragende Servicequalität.";
 }
 
 .tooltip-certified::after {
@@ -1107,15 +1113,34 @@ input[type="submit"]:hover {
 }
 
 #map-container {
+  width: 100%;
   max-width: 1140px;
   margin: 0 auto;
   padding: 1rem;
-  background-color: #ffffffaa;
+  box-sizing: border-box;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.75),
+      rgba(255, 255, 255, 0.97),
+      rgba(255, 255, 255, 0.98),
+      rgba(255, 255, 255, 0.99),
+      rgba(255, 255, 255, 1)
+    ),
+    url("img/american-flag.png");
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   border: 1px solid #ffa5a5;
+
   backdrop-filter: blur(1px);
   -webkit-backdrop-filter: blur(1px);
+
+  overflow: hidden;
 }
 
 #japan-map {
